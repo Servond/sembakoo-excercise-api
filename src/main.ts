@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import cors from "cors";
 import helmet from "helmet";
 
@@ -15,6 +15,9 @@ app.use(express.json());
 
 // routers
 app.use("/api", router);
+app.get("/", (req: Request, res: Response) => {
+  res.send("This is Sembakoo API");
+});
 
 // error middleware
 app.use(errorMiddleware);
